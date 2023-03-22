@@ -1,14 +1,13 @@
 import random
 
-MINIMUM_SCORE = 0
+MIN_SCORE = 0
 MID_SCORE = 50
 HIGH_SCORE = 90
-MAXIMUM_SCORE = 100
+MAX_SCORE = 100
 
 
-def get_result(score):
-
-    if score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
+def get_score_result(score):
+    if score < MIN_SCORE or score > MAX_SCORE:
         return "Invalid score"
     elif score >= HIGH_SCORE:
         return "Excellent"
@@ -19,11 +18,12 @@ def get_result(score):
 
 
 def main():
-    user_input_score = float(input("Enter Your Score: "))
-    print(get_result(user_input_score))
-    random_score = random.uniform(0, 100)
-    print(f"Random score Generated: {random_score}")
-    print(get_result(random_score))
+    user_score = float(input("Enter score: "))
+    result = get_score_result(user_score)
+    print(result)
+    random_score = random.uniform(MIN_SCORE, MAX_SCORE)
+    result = get_score_result(random_score)
+    print(f"Random score ({random_score}): {result}")
 
 
 main()
