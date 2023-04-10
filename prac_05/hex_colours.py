@@ -12,3 +12,4 @@ while colour_name != "":
         print("Invalid colour name")
     state_code = input("Enter a colour name: ").upper()
 
+print ("A")

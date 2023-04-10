@@ -18,3 +18,6 @@ while state_code != "":
     state_code = input("Enter short state: ").upper()
 for state_codes, state_name in CODE_TO_NAME.items():
     print("{:<3} is {}".format(state_codes, state_name))
+
+
+print ("A")
