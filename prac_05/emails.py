@@ -1,10 +1,9 @@
 def extract_name_from_email(emailid):
-    # Extract the name from the email
+    """Extract the name from the given email"""
     name = " ".join(emailid.split("@")[0].split(".")).title()
     choice = input(f"Is your name {name}? (Y/n) ").lower()
     if choice != "" and choice != "y":
         name = input("Name: ").title()
-
     return name
 
 
