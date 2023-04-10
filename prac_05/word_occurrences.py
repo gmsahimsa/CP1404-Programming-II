@@ -18,5 +18,3 @@ def count_words(input_word):
 
 
 main()
-
-print ("A")

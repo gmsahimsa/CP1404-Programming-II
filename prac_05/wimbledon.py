@@ -52,5 +52,3 @@ def main():
 
 
 main()
-
-print ("A")
