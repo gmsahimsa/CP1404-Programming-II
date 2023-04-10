@@ -23,5 +23,3 @@ while True:
 
 for state_codes, state_name in CODE_TO_NAME.items():
     print(f"{state_codes:<3} is {state_name}")
-
-
