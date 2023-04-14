@@ -26,7 +26,7 @@ def get_champions(data):
 def get_countries(data):
     countries = set()
     for row in data:
-        country = row[2]
+        country = row[1]
         countries.add(country)
     return sorted(countries)
 
