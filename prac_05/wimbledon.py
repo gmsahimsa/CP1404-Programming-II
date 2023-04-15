@@ -2,6 +2,7 @@ import csv
 
 
 def read_csv(filename):
+    """Read the csv file's data"""
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         reader = csv.reader(in_file)
         next(reader)
@@ -12,6 +13,7 @@ def read_csv(filename):
 
 
 def get_champions(data):
+    """Get the list of champions"""
     champions = {}
     for row in data:
         player = row[4]
@@ -24,6 +26,7 @@ def get_champions(data):
 
 
 def get_countries(data):
+    """Get the list of countries"""
     countries = set()
     for row in data:
         country = row[1]
@@ -32,6 +35,7 @@ def get_countries(data):
 
 
 def display_champions(champions):
+    """Prints the name's of the Wimbledon Champions"""
     print("Wimbledon Champions: ")
     for player in sorted(champions):
         num_wins = len(champions[player])
@@ -39,6 +43,7 @@ def display_champions(champions):
 
 
 def display_countries(countries):
+    """Prints the list's of who have won Wimbledon"""
     print("\nThese {} countries have won Wimbledon: ".format(len(countries)))
     print(", ".join(countries))
 
