@@ -1,19 +1,16 @@
 import datetime
 from project import Project
 
+MENU = "\n(L)oad projects\n(S)ave projects\n(D)isplay projects\n(F)ilter projects by date\n(A)dd new project\n(" \
+       "U)pdate project\n(Q)uit\n"
+
 
 def main():
     filename = "projects.txt"
     projects = load_projects(filename)
 
     while True:
-        print("\n- (L)oad projects")
-        print("- (S)ave projects")
-        print("- (D)isplay projects")
-        print("- (F)ilter projects by date")
-        print("- (A)dd new project")
-        print("- (U)pdate project")
-        print("- (Q)uit")
+        print(MENU)
         choice = input(">>> ").lower()
         if choice == "l":
             filename = input("Enter filename to load projects from: ")
