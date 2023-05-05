@@ -1,5 +1,6 @@
 import datetime
 from project import Project
+from operator import itemgetter
 
 MENU = "\n(L)oad projects\n(S)ave projects\n(D)isplay projects\n(F)ilter projects by date\n(A)dd new project\n(" \
        "U)pdate project\n(Q)uit\n"
@@ -56,18 +57,22 @@ def save_projects(filename, projects):
 
 
 def display_projects(projects):
-    incomplete_projects = sorted([project for project in projects if project.completion < 100],
-                                 key=lambda p: p.priority)
-    completed_projects = sorted([project for project in projects if project.completion == 100],
-                                key=lambda p: p.priority)
+    # Convert projects to dictionaries
+    temp_projects = [{'project': project, 'priority': project.priority, 'completion': project.completion} for project in
+                     projects]
+
+    incomplete_projects = sorted([item for item in temp_projects if item['completion'] < 100],
+                                 key=itemgetter('priority'))
+    completed_projects = sorted([item for item in temp_projects if item['completion'] == 100],
+                                key=itemgetter('priority'))
 
     print("Incomplete projects:")
-    for project in incomplete_projects:
-        print(project)
+    for item in incomplete_projects:
+        print(f"  {item['project']}")
 
     print("\nCompleted projects:")
-    for project in completed_projects:
-        print(project)
+    for item in completed_projects:
+        print(f"  {item['project']}")
 
 
 def filter_projects_by_date(projects, date):
